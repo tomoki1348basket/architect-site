@@ -139,6 +139,28 @@
      },
      {
       "@type": "Offer",
+      "url": "https://tomo-architect.com/#consult",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Zoom相談(60分)",
+       "description": "家づくりや間取りのお悩みを、建築士にZoomで60分ご相談いただけます。間取り添削・間取り作成をお申し込みの場合は、相談料を全額充当します。",
+       "provider": {
+        "@id": "https://tomo-architect.com/#business"
+       },
+       "areaServed": {
+        "@type": "Country",
+        "name": "日本"
+       }
+      },
+      "priceSpecification": {
+       "@type": "PriceSpecification",
+       "price": 15000,
+       "priceCurrency": "JPY",
+       "valueAddedTaxIncluded": false
+      }
+     },
+     {
+      "@type": "Offer",
       "url": "https://tomo-architect.com/#service-total",
       "itemOffered": {
        "@type": "Service",
@@ -358,6 +380,16 @@ ul.fit li::before{content:"";position:absolute;left:0;top:1.55em;width:9px;heigh
 .sc .chips span{border:1px solid rgba(255,255,255,.55);border-radius:99px;padding:0 10px}
 .sc .fine{font-size:12px;opacity:.88;margin:0 0 14px}
 .guide{font-size:14px;margin:32px 0 10px}
+.consult{background:var(--w);border:1px solid var(--line);border-radius:6px;padding:28px 22px;margin:40px 0 0}
+.consult .ce{font-size:12px;letter-spacing:.25em;color:var(--acc)}
+.consult h3{font-size:20px;margin:6px 0 12px;letter-spacing:.06em}
+.consult .pw{text-align:left;display:block;margin-bottom:14px}
+.consult .cr{font-size:14px;margin:0 0 6px;font-weight:600}
+.consult .fine{font-size:12px;color:var(--sub);margin:0 0 16px}
+.consult .fh{font-size:12px;letter-spacing:.15em;color:var(--acc)}
+.consult ul{list-style:none;padding:0;margin:4px 0 20px;font-size:13px}
+.consult li{position:relative;padding-left:16px;line-height:1.8}
+.consult li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:1px;background:var(--acc)}
 .steps.st li::before{display:none}
 .steps.st li{padding:18px 0}
 .sn{display:block;font-size:11px;letter-spacing:.22em;color:var(--acc);margin-bottom:2px}
@@ -440,6 +472,13 @@ const SERVICES = [
    flow:[["お問い合わせ", "公式LINEからお問い合わせください。"], ["オンライン相談(Zoom)", "お問い合わせいただいた後、オンライン相談(Zoom)にて詳細をご案内いたします。"]],
    nofaq:true, btn:"家づくりについて相談する" }
 ];
+
+/* 有料Zoom相談(サービス一覧の下に帯で表示)。price:税抜 / credit:充当の説明 */
+const CONSULT = { en:"ONLINE CONSULTATION", title:"まずはZoomで相談してみませんか?", minutes:60, price:15000,
+  credit:"その後、間取り添削・間取り作成をお申し込みの場合は、相談料を全額充当します。",
+  creditNote:"※充当は相談日から3か月以内のお申し込みが対象です。相談内容は、お申し込み後の添削・ヒアリングに引き継ぎます。",
+  fit:["どのサービスを頼めばいいか迷っている","今の間取りや家づくりの悩みをまとめて聞きたい"],
+  btn:"公式LINEで予約する" };
 
 const WORRIES = ["提案された間取りがしっくりこない","土地の特性をうまく活かせているか不安","理想の暮らしを叶えたいけれど、方向性が定まらない","照明計画や空間の雰囲気まで相談したい","デザイン性と暮らしやすさを両立させたい"];
 
@@ -537,7 +576,12 @@ $("home-view").innerHTML = `
 
 <section class="svc" id="service" style="padding-bottom:0"><div class="pad"><h2>SERVICE</h2><p class="jp">サービス・料金一覧</p></div>
   ${SERVICES.map(scCard).join("")}
-  <div class="pad"><p class="guide">どのサービスを選べばよいか分からない方や、掲載されていない内容についても、公式LINEよりお気軽にご相談ください。ご要望に合わせたサポート内容をご提案いたします。</p>
+  <div class="pad"><div class="consult" id="consult"><div class="ce">${esc(CONSULT.en)}</div><h3>${esc(CONSULT.title)}</h3>
+    <p style="font-size:14px;margin:0 0 4px">${CONSULT.minutes}分</p>${priceHtml(CONSULT.price)}
+    <p class="cr">${esc(CONSULT.credit)}</p><p class="fine">${esc(CONSULT.creditNote)}</p>
+    <div class="fh">こんな方に</div><ul>${CONSULT.fit.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+    <a class="btn" href="${esc(SITE.lineUrl)}">${esc(CONSULT.btn)}</a></div>
+    <p class="guide">どのサービスを選べばよいか分からない方や、掲載されていない内容についても、公式LINEよりお気軽にご相談ください。ご要望に合わせたサポート内容をご提案いたします。</p>
     <p class="note2">※ご依頼前のご相談は、サービス内容の確認やお見積もりに関するものです。具体的な設計提案は、各サービスのお申し込み後に行います。</p>
     <a class="btn" href="${esc(SITE.lineUrl)}" style="margin-top:20px">${esc(SITE.lineLabel)}</a></div>
   <div style="height:56px"></div></section>
