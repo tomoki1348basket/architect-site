@@ -384,7 +384,7 @@ ul.fit li::before{content:"";position:absolute;left:0;top:1.55em;width:9px;heigh
 .consult .ce{font-size:12px;letter-spacing:.25em;color:var(--acc)}
 .consult h3{font-size:20px;margin:6px 0 12px;letter-spacing:.06em}
 .consult .pw{text-align:left;display:block;margin-bottom:14px}
-.consult .cr{font-size:14px;margin:0 0 6px;font-weight:600}
+.consult .cr{font-size:13px;margin:0 0 4px}
 .consult .fine{font-size:12px;color:var(--sub);margin:0 0 16px}
 .consult .fh{font-size:12px;letter-spacing:.15em;color:var(--acc)}
 .consult ul{list-style:none;padding:0;margin:4px 0 20px;font-size:13px}
@@ -577,9 +577,9 @@ $("home-view").innerHTML = `
 <section class="svc" id="service" style="padding-bottom:0"><div class="pad"><h2>SERVICE</h2><p class="jp">サービス・料金一覧</p></div>
   ${SERVICES.map(scCard).join("")}
   <div class="pad"><div class="consult" id="consult"><div class="ce">${esc(CONSULT.en)}</div><h3>${esc(CONSULT.title)}</h3>
+    <div class="fh">こんな方に</div><ul>${CONSULT.fit.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
     <p style="font-size:14px;margin:0 0 4px">${CONSULT.minutes}分</p>${priceHtml(CONSULT.price)}
     <p class="cr">${esc(CONSULT.credit)}</p><p class="fine">${esc(CONSULT.creditNote)}</p>
-    <div class="fh">こんな方に</div><ul>${CONSULT.fit.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
     <a class="btn" href="${esc(SITE.lineUrl)}">${esc(CONSULT.btn)}</a></div>
     <p class="guide">どのサービスを選べばよいか分からない方や、掲載されていない内容についても、公式LINEよりお気軽にご相談ください。ご要望に合わせたサポート内容をご提案いたします。</p>
     <p class="note2">※ご依頼前のご相談は、サービス内容の確認やお見積もりに関するものです。具体的な設計提案は、各サービスのお申し込み後に行います。</p>
