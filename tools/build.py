@@ -14,7 +14,7 @@ def L(slug): return ('index' + EXT if EXT else './') if slug == '' else slug + E
 
 # ---------------- content ----------------
 ZOOM = dict(slug='zoom-consultation', no='00', en='ZOOM CONSULTATION', name='Zoom相談', area='全国対応', price=15000,
-  img='contact', unit='60分',
+  img='zoom', unit='60分',
   short='家づくりの相談窓口。間取りや内装など、お悩みを60分お話しください。',
   title='Zoom相談|家づくり・間取りのご相談を建築士に(60分)',
   desc='建築士に間取り・内装など家づくりの悩みを60分オンラインで相談できるZoom相談。本申込の場合、相談料は全額充当されます。',
@@ -35,7 +35,7 @@ REVIEW = dict(slug='floorplan-review', no='01', en='FLOOR PLAN REVIEW', name='�
   deliv='間取り図に赤ペンで添削します。',
   flow=[['お問い合わせ・お申し込み','公式LINEよりお問い合わせいただき、ご依頼内容を確認します。'],['ご入金・資料のご提出','現在の間取り図や参考資料、気になっている点、ご要望などを公式LINEにてお送りいただきます。'],['間取り添削','いただいた資料やご要望をもとに、間取りの改善点や変更案をご提案します。'],['納品・オンライン解説','添削資料をPDFにて納品し、Zoomにて詳しくご説明します。']],
   fix='修正は1回です。修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。')
-DESIGN = dict(slug='floorplan-design', no='02', en='FLOOR PLAN DESIGN', name='間取り作成', area='全国対応', price=180000, img='m2',
+DESIGN = dict(slug='floorplan-design', no='02', en='FLOOR PLAN DESIGN', name='間取り作成', area='全国対応', price=180000, img='plan',
   short='暮らし方と敷地に合わせて、間取りを一からご提案します。',
   title='間取り作成|建築士が間取り・外観パース・内装パースをオンラインで提案',
   desc='暮らし方・ご要望・敷地条件をもとに、建築士が間取りを一から作成。外観パース・LDK内装パース付き、税抜180,000円、全国オンライン対応。',
@@ -46,7 +46,7 @@ DESIGN = dict(slug='floorplan-design', no='02', en='FLOOR PLAN DESIGN', name='�
   deliv='間取り図・外観パース・LDK内装パース(2カット)をPDFで納品します。',
   flow=[['お問い合わせ','公式LINEよりお問い合わせください。'],['ヒアリングシート・資料のご提出','簡単なヒアリングシート(A4用紙1〜2枚程度)へのご回答と、敷地図や参考資料などをご提出いただきます。'],['オンラインヒアリング(Zoom)','暮らし方やご要望、お好みのデザイン、家づくりで大切にされていることなどを詳しくお伺いします。'],['お申し込み・ご入金','ヒアリング後、サービス内容をご確認いただき、正式なお申し込みとご入金をお願いいたします。'],['プラン作成','ヒアリング内容や敷地条件をもとに、お客様の暮らしに合わせたプランを作成します。'],['納品・オンライン解説','作成した資料をPDFにて納品し、Zoomにて間取りやデザインの意図を詳しくご説明します。']],
   fix='修正は、間取り・デザインで合計2回までを基本とします。住宅会社からの指摘を踏まえたブラッシュアップも、この修正回数内で対応します。修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。')
-SUPPORT = dict(slug='design-support', no='03', en='DESIGN SUPPORT', name='設計デザインサポート', area='全国対応', priceText='個別お見積もり', img='s1',
+SUPPORT = dict(slug='design-support', no='03', en='DESIGN SUPPORT', name='設計デザインサポート', area='全国対応', priceText='個別お見積もり', img='mat',
   short='設計・デザインのお悩みに、範囲を決めて柔軟に対応します。',
   title='設計デザインサポート|間取り・外観・内装・照明を建築士がオンラインで',
   desc='間取り・外観・内装・照明・素材選定まで、必要な範囲を組み合わせて建築士がサポート。個別お見積もり、全国オンライン対応。',
@@ -60,7 +60,7 @@ SUPPORT = dict(slug='design-support', no='03', en='DESIGN SUPPORT', name='設計
   quote=['料金は個別お見積もりです。ご相談内容やご希望のサポート範囲に応じて、お見積もりいたします。','業務範囲・納品物・修正回数・対応期間は、ご依頼内容に応じて決定します。','まずは公式LINEよりお気軽にご相談ください。'],
   flow=[['お問い合わせ','公式LINEより、ご相談内容やご希望のサポート内容をお聞かせください。'],['資料のご提出・オンラインヒアリング(Zoom)','必要な資料をご提出いただき、現在の家づくりの状況やお悩み、ご要望などを詳しくお伺いします。'],['お見積もり','ヒアリング内容をもとに、サポート範囲や料金をご提案します。'],['お申し込み・ご入金','お見積もり内容をご確認いただき、正式なお申し込みとご入金をお願いいたします。'],['デザイン提案','ご依頼内容に合わせたデザインをご提案します。'],['納品・オンライン解説','Zoomにてご提案内容やデザインの意図を詳しくご説明します。継続的なサポートの場合は、ご契約内容に応じて進めていきます。']],
   fix='修正回数は、ご依頼内容に応じてお見積もり時にご案内します。')
-FULL = dict(slug='full-support', no='04', en='TOTAL HOME DESIGN', name='家づくりフルサポート', area='徳島県内限定', priceText='Zoomでご案内', img='hero',
+FULL = dict(slug='full-support', no='04', en='TOTAL HOME DESIGN', name='家づくりフルサポート', area='徳島県内限定', priceText='Zoomでご案内', img='ext',
   short='所属工務店と連携し、お家の完成までを一貫してサポートします。',
   title='家づくりフルサポート|徳島県内で建築士と工務店が連携して家づくり',
   desc='徳島県内限定。建築士が所属工務店と連携し、間取り・外観・内装・照明まで一貫したデザインでお家の完成までサポートします。',
@@ -180,7 +180,7 @@ def top():
     services = sec('services','SERVICE','サービス・料金一覧', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
 <div class="scl">{service_cards()}</div>
 <p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成・設計デザインサポートの本申込時に全額充当されます。</p>''', 'tint')
-    profile = sec('profile','ABOUT','私について', f'''<div class="pg"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><p class="name">宇山 朋希<small>建築士</small></p><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
+    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org">Architect / 家づくりデザインサポート</span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
