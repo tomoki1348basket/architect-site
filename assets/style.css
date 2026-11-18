@@ -180,3 +180,5 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .rom{display:block;font-size:15px;letter-spacing:.3em;color:var(--acc);margin-bottom:26px}
 .org{display:block;font-size:13.5px;letter-spacing:.2em;color:var(--sub);padding-bottom:30px;margin-bottom:34px;border-bottom:1px solid var(--line)}
 @media(min-width:760px){.pf{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:start}.pf .ptx{padding-top:0}.pf .pimg{aspect-ratio:1/1.08}}
+.pf{padding:0 6%}.pf .pimg{aspect-ratio:1/1}.pf .pimg img{object-position:center}
+@media(min-width:760px){.pf{padding:0;gap:90px}.pf .pimg{aspect-ratio:1/1}}
