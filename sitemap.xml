@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.w3.org/2000/sitemaps/0.9">
-  <url>
-    <loc>https://tomo-architect.com/</loc>
-    <lastmod>2026-11-17</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://tomo-architect.com/</loc></url>
+<url><loc>https://tomo-architect.com/zoom-consultation</loc></url>
+<url><loc>https://tomo-architect.com/floorplan-review</loc></url>
+<url><loc>https://tomo-architect.com/floorplan-design</loc></url>
+<url><loc>https://tomo-architect.com/design-support</loc></url>
+<url><loc>https://tomo-architect.com/full-support</loc></url>
+<url><loc>https://tomo-architect.com/design</loc></url>
 </urlset>
