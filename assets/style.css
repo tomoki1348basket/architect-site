@@ -169,3 +169,5 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .approach{background:var(--w);border:1px solid var(--line);padding:26px 22px}.approach h3{border:0;padding:0;font-size:16px;line-height:1.8;letter-spacing:.1em;margin-bottom:14px}.approach p{font-size:14.5px}
 .blk{margin-bottom:40px}
 .phero+.sec{padding-top:44px}
+.approach{background:none;border:0;padding:0}.approach h3{border-left:2px solid var(--acc);padding-left:14px;font-size:15px;line-height:1.6;letter-spacing:.14em;margin-bottom:16px}.approach p{font-size:14.5px}
+.approach .sm{font-size:12.5px}

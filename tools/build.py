@@ -17,13 +17,13 @@ ZOOM = dict(slug='zoom-consultation', no='00', en='ZOOM CONSULTATION', name='Zoo
   img='contact', unit='60分',
   short='家づくりの相談窓口。間取りや内装など、お悩みを60分お話しください。',
   title='Zoom相談|家づくり・間取りのご相談を建築士に(60分)',
-  desc='建築士に間取り・内装など家づくりの悩みを60分オンラインで相談できるZoom相談。対象の設計サービスをお申し込みの場合、相談料は全額充当されます。',
+  desc='建築士に間取り・内装など家づくりの悩みを60分オンラインで相談できるZoom相談。本申込の場合、相談料は全額充当されます。',
   lead='間取りや内装など、家づくりのお悩みを、建築士に直接ご相談いただけます。',
   fit=['間取りや内装について、建築士の意見を聞いてみたい','住宅会社の提案に、少し不安がある','土地や暮らし方に合う家のかたちを整理したい','設計やデザインの進め方を、一度相談してみたい'],
   points=['オンライン(Zoom)60分','間取り・外観・内装・照明など、家づくり全般のご相談','お手持ちの間取り図・敷地資料・参考画像をもとにご相談'],
-  credit='ご相談のあと、間取り添削・間取り作成を正式にお申し込みいただく場合は、相談料を全額、サービス料金に充当します。',
+  credit='ご相談のあと、間取り添削・間取り作成・設計デザインサポートを正式にお申し込みいただく場合は、相談料を全額、サービス料金に充当します。',
   flow=[['公式LINEでご連絡','「Zoom相談を希望」とお送りください。日程を調整します。'],['ご入金','ご予約確定後、相談料をお振込みいただきます。'],['Zoom相談(60分)','お悩みやご要望を伺い、建築士の視点でアドバイスします。'],['必要に応じてサービスをご案内','ご希望があれば、設計サービスをご案内します。お申し込みは任意です。']],
-  fix='相談料の充当は、相談後の本申込が対象です。')
+  fix=None)
 REVIEW = dict(slug='floorplan-review', no='01', en='FLOOR PLAN REVIEW', name='間取り添削', area='全国対応', price=50000, img='s2',
   short='提案済みの間取りを、建築士の視点で見直します。',
   title='間取り添削|住宅会社の間取りを建築士がオンラインで改善提案',
@@ -88,7 +88,7 @@ ABOUT = ['家づくりは、単に間取りを決めることではなく、「�
 FAQ = [
  ('対応エリアは?','オンラインで全国対応しています。徳島県内の方には、所属工務店と連携した家づくりのサポートも、オンライン相談でご案内します。'),
  ('住宅会社が決まっていなくても相談できますか?','はい。まずは公式LINEからご相談ください。'),
- ('Zoom相談の料金は、その後のサービスに充当されますか?','間取り添削・間取り作成を正式にお申し込みいただく場合、Zoom相談料(60分)は全額充当されます。Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。'),
+ ('Zoom相談の料金は、その後のサービスに充当されますか?','間取り添削・間取り作成・設計デザインサポートを正式にお申し込みいただく場合、Zoom相談料(60分)は全額充当されます。Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。'),
  ('提案を住宅会社でそのまま採用できますか?','住宅会社によって、外部設計者の提案を採用できない場合があります。事前に住宅会社へご確認ください。'),
  ('現地調査はありますか?','現地調査は行いません。ご提供いただく敷地資料・現地写真・ご要望などをもとに提案します。'),
  ('構造計算や申請、工事監理もお願いできますか?','構造計算・建築確認申請・実施設計・工事監理は含みません。お客様が選ばれた住宅会社にご確認ください。'),
@@ -175,11 +175,11 @@ def top():
     hero = f'''<section class="hero"><div class="heroimg">{img('hero','',lazy=False)}</div><div class="heroin wrap">
 <p class="eyebrow">ARCHITECT / UYAMA TOMOKI</p><h1>理想の暮らしを、<br>建築士と一緒に。</h1>
 <p class="herosub">間取り・外観・照明まで、<br>心地よく、美しい住まいをご提案します。</p>
-{line_btn('公式LINEで相談する','btn btn-w')}<a class="herolink" href="#services">サービスを見る ↓</a></div></section>'''
+<a class="btn btn-w" href="#services"><span>サービスを見る</span><i aria-hidden="true">↓</i></a></div></section>'''
     concept = sec('concept','DESIGN CONCEPT','デザインの考え方', f'''<div class="ctx"><p class="lead">{CONCEPT['catch']}</p>{ps(CONCEPT['paras'])}</div>''')
     services = sec('services','SERVICE','サービス・料金一覧', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
 <div class="scl">{service_cards()}</div>
-<p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成の本申込時に全額充当されます。</p>''', 'tint')
+<p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成・設計デザインサポートの本申込時に全額充当されます。</p>''', 'tint')
     profile = sec('profile','ABOUT','私について', f'''<div class="pg"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><p class="name">宇山 朋希<small>建築士</small></p><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
@@ -198,7 +198,7 @@ def service_page(s):
     b = ''
     b += f'<div class="blk"><h3>こんな方に</h3>{ul(s["fit"],"chk")}</div>'
     if s['slug']=='floorplan-design': b += '<div class="blk approach"><h3>'+APPROACH['title']+'</h3>'+ps([x.replace('{P}',yen(s['price'])) for x in APPROACH['paras']])+'<p class="sm">'+APPROACH['note']+'</p></div>'
-    if z: b += f'<div class="credit"><b>相談料の充当について</b><p>{e(s["credit"])}</p><p class="sm">Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。</p></div>'
+    if z: b += f'<div class="blk"><h3>相談料の充当について</h3><p>{e(s["credit"])}</p><p class="sm">Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。</p></div>'
     if s.get('chips'): b += f'<div class="blk"><h3>対応できること</h3><div class="chips">{"".join(f"<span>{c}</span>" for c in s["chips"])}</div><p class="sm">必要な項目を、自由に組み合わせられます。</p></div>'
     b += f'<div class="blk"><h3>{s.get("pointsTitle","サービス内容")}</h3>{ul(s["points"],"dot")}</div>'
     if s.get('extra'): b += f'<div class="blk">{ps(s["extra"])}</div>'
