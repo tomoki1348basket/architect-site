@@ -134,17 +134,17 @@ def header(home=False):
     links = ''.join(f'<a href="{navlink(a)}">{a[1]}</a>' for a in NAV)
     return f'''<body><a class="skip" href="#main">本文へ</a>
 <header class="hd{' hd-home' if home else ''}" id="hd"><div class="wrap hdin">
-<a class="logo" href="{L('')}"><span>宇山 朋希</span><small>ARCHITECT</small></a>
+<a class="logo" href="{L('')}"><span>宇山 朋希 <i>/</i> 建築士</span></a>
 <nav class="pcnav" aria-label="メイン">{links}</nav>
-<button class="mb" id="mb" aria-expanded="false" aria-controls="drawer"><span></span><span></span><em class="sr">MENU</em></button></div></header>
+<button class="mb" id="mb" aria-expanded="false" aria-controls="drawer"><b>MENU</b></button></div></header>
 <div class="drawer" id="drawer" hidden><nav aria-label="メニュー">{''.join(f'<a href="{navlink(a)}">{a[1]}</a>' for a in NAV)}
 <div class="dsv"><span class="en">SERVICES</span>{''.join(f'<a href="{L(s["slug"])}">{s["name"]}</a>' for s in SERVICES)}</div></nav>
 {line_btn()}</div>'''
 
 def footer():
     sv = ''.join(f'<a href="{L(s["slug"])}">{s["name"]}</a>' for s in SERVICES)
-    return f'''<footer class="ft"><div class="wrap"><div class="ftg"><div><div class="logo"><span>宇山 朋希</span><small>ARCHITECT</small></div><p class="ftp">間取り・外観・照明まで、心地よく、美しい住まいを。</p></div>
-<div class="ftl"><span class="en">SERVICES</span>{sv}<a href="{L('design')}">デザインの考え方</a></div></div>
+    return f'''<footer class="ft"><div class="wrap"><div class="ftg"><div><div class="logo"><span>宇山 朋希 <i>/</i> 建築士</span></div><p class="ftp">間取り・外観・照明まで、心地よく、美しい住まいを。</p></div>
+<div class="ftl"><span class="en">SERVICES</span>{sv}</div></div>
 <p class="copy">© 宇山 朋希 / Tomoki Uyama Architect</p></div></footer>
 <div class="fab"><a href="{LINE}" target="_blank" rel="noopener"><span>公式LINEで相談する</span></a></div>
 <script>(function(){{var b=document.getElementById('mb'),d=document.getElementById('drawer');if(!b)return;
@@ -162,10 +162,12 @@ pages = {}
 def service_cards():
     out = ''
     for s in SERVICES:
-        tag = f'<span class="tag{" loc" if s["area"].startswith("徳島") else ""}">{s["area"]}</span>'
-        out += f'''<a class="sv{' sv-z' if s['slug']=='zoom-consultation' else ''}" href="{L(s['slug'])}">
-<span class="svn">{s['no']}</span><span class="svb"><span class="svt"><b>{s['name']}</b>{tag}</span><span class="svd">{e(s['short'])}</span>{price_html(s)}</span>
-<span class="svi">{img(s['img'], s['name'])}</span><i class="arw" aria-hidden="true">→</i></a>'''
+        loc = s["area"].startswith("徳島")
+        z = s['slug'] == 'zoom-consultation'
+        out += f'''<a class="sc{' sc-z' if z else ''}" href="{L(s['slug'])}"><span class="scbg">{img(s['img'], s['name'])}</span>
+<span class="scin"><span class="sce">{s['no']} | {s['en']}</span><b>{s['name']}</b>
+<span class="scm"><span class="tag{' loc' if loc else ''}">{s['area']}</span>{('<span class="tag">家づくりの相談窓口</span>' if z else '')}</span>
+<span class="scd">{e(s['short'])}</span>{price_html(s)}<span class="pill">詳細を見る</span></span></a>'''
     return out
 
 def top():
@@ -173,11 +175,11 @@ def top():
 <p class="eyebrow">ARCHITECT / UYAMA TOMOKI</p><h1>理想の暮らしを、<br>建築士と一緒に。</h1>
 <p class="herosub">間取り・外観・照明まで、<br>心地よく、美しい住まいをご提案します。</p>
 {line_btn('公式LINEで相談する','btn btn-w')}<a class="herolink" href="#services">サービスを見る ↓</a></div></section>'''
-    concept = sec('concept','CONCEPT','デザインの考え方', f'''<div class="cg"><div class="cimg">{img('contact','光と陰影のあるリビング')}</div><div class="ctx"><p class="lead">{CONCEPT['catch']}</p>{ps(CONCEPT['paras'])}<a class="more" href="{L('design')}">デザインの考え方を詳しく見る <i>→</i></a></div></div>''')
-    services = sec('services','SERVICES','デザインサービス', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
-<div class="svl">{service_cards()}</div>
+    concept = sec('concept','DESIGN CONCEPT','デザインの考え方', f'''<div class="ctx"><p class="lead">{CONCEPT['catch']}</p>{ps(CONCEPT['paras'])}</div>''')
+    services = sec('services','SERVICE','サービス・料金一覧', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
+<div class="scl">{service_cards()}</div>
 <p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成の本申込時に全額充当されます。</p>''', 'tint')
-    profile = sec('profile','PROFILE','プロフィール', f'''<div class="pg"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><p class="name">宇山 朋希<small>建築士</small></p><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
+    profile = sec('profile','ABOUT','私について', f'''<div class="pg"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><p class="name">宇山 朋希<small>建築士</small></p><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
@@ -222,7 +224,6 @@ def design_page():
     main = f'''<main id="main"><section class="phero"><div class="wrap pheroin"><nav class="bc"><a href="{L('')}">TOP</a> / デザインの考え方</nav><p class="eyebrow">DESIGN CONCEPT</p><h1>{CONCEPT['catch']}</h1>{ps(CONCEPT['paras'])}</div></section>
 <section class="sec"><div class="wrap">{blocks}</div></section><section class="sec cta-sec"><div class="wrap narrow"><div class="cta">{line_btn('公式LINEで相談する','btn btn-w')}</div></div></section></main>'''
     return head('デザインの考え方|引き算から生まれる空間の美しさ|建築士 宇山朋希','空間構成、素材とディテール、光と陰影、家具とインテリア、建築と自然。建築士・宇山朋希が大切にしているデザインの考え方。','design',jsonld=[crumbs([('TOP',''),('デザインの考え方','design')])]) + header() + main + footer()
-pages['design'] = design_page()
 
 # ---------------- write ----------------
 shutil.rmtree(OUT, ignore_errors=True); os.makedirs(OUT + '/assets')
@@ -230,6 +231,6 @@ shutil.copytree(ROOT + '/img', OUT + '/img')
 shutil.copy(ROOT + '/assets/style.css', OUT + '/assets/style.css')
 for f in ('ogp.jpg','robots.txt'): shutil.copy(ROOT + '/' + f, OUT + '/' + f)
 for k, v in pages.items(): open(f'{OUT}/{k}.html', 'w', encoding='utf8').write(v)
-urls = [''] + [s['slug'] for s in SERVICES] + ['design']
+urls = [''] + [s['slug'] for s in SERVICES] 
 open(OUT + '/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{BASE}/{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 print('ok', len(pages), 'pages')
