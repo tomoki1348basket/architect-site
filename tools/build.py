@@ -83,6 +83,7 @@ THEMES = [
  ('04','家具とインテリア',['d3'],['建物が完成したときではなく、家具が入り、暮らしが始まったときの美しさまで考える。','ソファやダイニングテーブルの配置、家具の高さや素材、アートや小物とのバランス。','必要に応じて具体的な家具やメーカー・品番まで選定し、建築とインテリアが自然に調和する空間を目指します。']),
  ('05','建築と自然',['m3','m4'],['庭や植栽は、建築を完成させる大切な要素のひとつです。','室内から見える樹木の位置、窓から切り取る景色、季節によって変化する光と影。','建物と庭を一体で考え、自然を身近に感じられる住まいをつくります。']),
 ]
+APPROACH = {'title':'デザインにこだわった家づくりを、もっと身近に。','paras':['建築家や設計事務所に住宅の設計・監理を依頼する場合、工事費の8〜10%程度、あるいはそれ以上の設計監理料が必要となるケースがあります。','例えば建築工事費3,000万円の場合、8〜10%で約240〜300万円。','一般的な設計事務所では、デザイン提案だけでなく、実施設計・各種申請・工事監理なども担当します。','一方、私のサービスでは、間取り・外観・インテリアのデザイン提案に業務を絞り、{P}円(税抜)でご提供しています。','実施設計・構造計算・建築確認申請・工事監理などは、お客様が選ばれた住宅会社にご担当いただく形です。','それぞれの役割を分担することで、デザインにこだわった住まいづくりを、より身近な形でサポートします。'],'note':'※設計監理料の割合は一例です。一般的な設計監理サービスとは業務範囲が異なり、住宅会社側で別途費用が必要になる場合があります。'}
 ABOUT = ['家づくりは、単に間取りを決めることではなく、「その土地で、どんな暮らしをしたいか」を考えることだと思っています。','建築士として、敷地の特性や暮らし方を丁寧に読み解き、デザインと暮らしやすさのバランスがとれた空間をご提案します。','私自身も自邸を設計し、日々の暮らしを通して、設計段階では気づかなかった発見や学びがあります。','建築士としての知識や経験だけでなく、実際に暮らしているからこそ感じることも、皆さまの家づくりにお伝えできればと思っています。']
 FAQ = [
  ('対応エリアは?','オンラインで全国対応しています。徳島県内の方には、所属工務店と連携した家づくりのサポートも、オンライン相談でご案内します。'),
@@ -192,11 +193,11 @@ def service_page(s):
     z = s['slug'] == 'zoom-consultation'
     tag = f'<span class="tag{" loc" if s["area"].startswith("徳島") else ""}">{s["area"]}</span>'
     h = f'''<section class="phero"><div class="wrap pheroin"><nav class="bc" aria-label="パンくず"><a href="{L('')}">TOP</a> / <a href="{L('')}#services">サービス</a> / {s['name']}</nav>
-<p class="eyebrow">{s['en']}</p><h1>{s['name']}{tag}</h1><p class="lead">{e(s['lead'])}</p>
-<div class="pbox">{price_html(s)}</div></div><div class="pimgf">{img(s['img'], s['name'], lazy=False)}</div></section>'''
+<p class="eyebrow">{s['en']}</p><h1>{s['name']}{tag}</h1>
+<div class="pbox">{price_html(s)}</div></div></section>'''
     b = ''
-    if s.get('more'): b += f'<div class="blk">{ps(s["more"])}</div>'
     b += f'<div class="blk"><h3>こんな方に</h3>{ul(s["fit"],"chk")}</div>'
+    if s['slug']=='floorplan-design': b += '<div class="blk approach"><h3>'+APPROACH['title']+'</h3>'+ps([x.replace('{P}',yen(s['price'])) for x in APPROACH['paras']])+'<p class="sm">'+APPROACH['note']+'</p></div>'
     if z: b += f'<div class="credit"><b>相談料の充当について</b><p>{e(s["credit"])}</p><p class="sm">Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。</p></div>'
     if s.get('chips'): b += f'<div class="blk"><h3>対応できること</h3><div class="chips">{"".join(f"<span>{c}</span>" for c in s["chips"])}</div><p class="sm">必要な項目を、自由に組み合わせられます。</p></div>'
     b += f'<div class="blk"><h3>{s.get("pointsTitle","サービス内容")}</h3>{ul(s["points"],"dot")}</div>'
