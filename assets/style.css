@@ -183,3 +183,7 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .pf{padding:0 6%}.pf .pimg{aspect-ratio:1/1}.pf .pimg img{object-position:center}
 @media(min-width:760px){.pf{padding:0;gap:90px}.pf .pimg{aspect-ratio:1/1}}
 .org{padding:0;margin:0 0 30px;height:0}
+.smp{display:grid;gap:22px}.smp figure img{height:auto;display:block;border:1px solid var(--line)}
+.smp figcaption{font-size:12.5px;letter-spacing:.14em;color:var(--sub);margin-top:8px}
+.smp figure:first-child img{background:#fff}
+@media(min-width:760px){.smp{grid-template-columns:1fr 1fr;gap:28px}.smp figure:first-child{grid-column:1/-1}}

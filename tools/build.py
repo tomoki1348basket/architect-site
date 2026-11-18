@@ -203,6 +203,9 @@ def service_page(s):
     b += f'<div class="blk"><h3>{s.get("pointsTitle","サービス内容")}</h3>{ul(s["points"],"dot")}</div>'
     if s.get('extra'): b += f'<div class="blk">{ps(s["extra"])}</div>'
     if s.get('deliv'): b += f'<div class="blk"><h3>納品物</h3><p>{e(s["deliv"])}</p></div>'
+    if s['slug']=='floorplan-design':
+        sm=[('d-plan','間取り図','間取り図'),('d-ext','外観パース','外観パース'),('d-in1','LDK内装パース①','LDK内装パース 1カット目'),('d-in2','LDK内装パース②','LDK内装パース 2カット目')]
+        b += '<div class="blk"><h3>納品イメージ</h3><div class="smp">' + ''.join(f'<figure><img src="img/{k}.jpg" alt="{a}" loading="lazy" decoding="async"><figcaption>{c}</figcaption></figure>' for k,c,a in sm) + '</div><p class="sm">※納品物のイメージです。実際の内容は、お客様のご要望や敷地条件に合わせて作成します。</p></div>'
     if s.get('quote'): b += f'<div class="blk"><h3>料金について</h3>{ps(s["quote"])}</div>'
     if s.get('notes'): b += f'<div class="blk"><h3>ご確認ください</h3>{ul(s["notes"],"dot")}</div>'
     b += '<div class="blk"><h3>ご利用の流れ</h3><ol class="flow">' + ''.join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t,d in s['flow']) + '</ol></div>'
