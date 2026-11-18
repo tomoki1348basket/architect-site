@@ -182,3 +182,4 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 @media(min-width:760px){.pf{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:start}.pf .ptx{padding-top:0}.pf .pimg{aspect-ratio:1/1.08}}
 .pf{padding:0 6%}.pf .pimg{aspect-ratio:1/1}.pf .pimg img{object-position:center}
 @media(min-width:760px){.pf{padding:0;gap:90px}.pf .pimg{aspect-ratio:1/1}}
+.org{padding:0;margin:0 0 30px;height:0}

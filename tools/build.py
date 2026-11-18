@@ -180,7 +180,7 @@ def top():
     services = sec('services','SERVICE','サービス・料金一覧', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
 <div class="scl">{service_cards()}</div>
 <p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成・設計デザインサポートの本申込時に全額充当されます。</p>''', 'tint')
-    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org">Architect / 家づくりデザインサポート</span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
+    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
