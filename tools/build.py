@@ -10,7 +10,10 @@ LINE = 'https://lin.ee/RltCpPb'
 tax = lambda p: f'{round(p*1.1):,}'
 yen = lambda p: f'{p:,}'
 e = html.escape
-def L(slug): return ('index' + EXT if EXT else './') if slug == '' else slug + EXT
+PFX = ''
+def L(slug):
+    if slug == '': return PFX + 'index.html' if EXT else (PFX or './')
+    return PFX + slug + EXT
 
 # ---------------- content ----------------
 ZOOM = dict(slug='zoom-consultation', no='00', en='ZOOM CONSULTATION', name='Zoom相談', area='全国対応', price=15000,
@@ -21,7 +24,7 @@ ZOOM = dict(slug='zoom-consultation', no='00', en='ZOOM CONSULTATION', name='Zoo
   lead='間取りや内装など、家づくりのお悩みを、建築士に直接ご相談いただけます。',
   fit=['間取りや内装について、建築士の意見を聞いてみたい','住宅会社の提案に、少し不安がある','土地や暮らし方に合う家のかたちを整理したい','設計やデザインの進め方を、一度相談してみたい'],
   points=['オンライン(Zoom)60分','間取り・外観・内装・照明など、家づくり全般のご相談','お手持ちの間取り図・敷地資料・参考画像をもとにご相談'],
-  credit='ご相談のあと、間取り添削・間取り作成・設計デザインサポートを正式にお申し込みいただく場合は、相談料を全額、サービス料金に充当します。',
+  credit='ご相談のあと、間取り添削・間取り作成を正式にお申し込みいただく場合は、相談料を全額、サービス料金に充当します。',
   flow=[['公式LINEでご連絡','「Zoom相談を希望」とお送りください。日程を調整します。'],['ご入金','ご予約確定後、相談料をお振込みいただきます。'],['Zoom相談(60分)','お悩みやご要望を伺い、建築士の視点でアドバイスします。'],['必要に応じてサービスをご案内','ご希望があれば、設計サービスをご案内します。お申し込みは任意です。']],
   fix=None)
 REVIEW = dict(slug='floorplan-review', no='01', en='FLOOR PLAN REVIEW', name='間取り添削', area='全国対応', price=50000, img='s2',
@@ -60,7 +63,7 @@ SUPPORT = dict(slug='design-support', no='03', en='DESIGN SUPPORT', name='設計
   quote=['料金は個別お見積もりです。ご相談内容やご希望のサポート範囲に応じて、お見積もりいたします。','業務範囲・納品物・修正回数・対応期間は、ご依頼内容に応じて決定します。','まずは公式LINEよりお気軽にご相談ください。'],
   flow=[['お問い合わせ','公式LINEより、ご相談内容やご希望のサポート内容をお聞かせください。'],['資料のご提出・オンラインヒアリング(Zoom)','必要な資料をご提出いただき、現在の家づくりの状況やお悩み、ご要望などを詳しくお伺いします。'],['お見積もり','ヒアリング内容をもとに、サポート範囲や料金をご提案します。'],['お申し込み・ご入金','お見積もり内容をご確認いただき、正式なお申し込みとご入金をお願いいたします。'],['デザイン提案','ご依頼内容に合わせたデザインをご提案します。'],['納品・オンライン解説','Zoomにてご提案内容やデザインの意図を詳しくご説明します。継続的なサポートの場合は、ご契約内容に応じて進めていきます。']],
   fix='修正回数は、ご依頼内容に応じてお見積もり時にご案内します。')
-FULL = dict(slug='full-support', no='04', en='TOTAL HOME DESIGN', name='家づくりフルサポート', area='徳島県内限定', priceText='Zoomでご案内', img='ext',
+FULL = dict(slug='full-support', no='03', en='TOTAL HOME DESIGN', name='家づくりフルサポート', area='徳島県内限定', priceText='Zoomでご案内', img='ext',
   short='所属工務店と連携し、お家の完成までを一貫してサポートします。',
   title='家づくりフルサポート|徳島県内で建築士と工務店が連携して家づくり',
   desc='徳島県内限定。建築士が所属工務店と連携し、間取り・外観・内装・照明まで一貫したデザインでお家の完成までサポートします。',
@@ -73,7 +76,7 @@ FULL = dict(slug='full-support', no='04', en='TOTAL HOME DESIGN', name='家づ�
   notes=['本サービスは、所属工務店と連携して提供するものです。施工・工事は工務店が担当します。','全国対応のオンラインサービスとは異なり、徳島県内限定のサービスです。'],
   flow=[['お問い合わせ','公式LINEからお問い合わせください。'],['オンライン相談(Zoom)','お問い合わせいただいた後、オンライン相談(Zoom)にて詳細をご案内いたします。']],
   fix=None, btn='家づくりについて相談する')
-SERVICES = [ZOOM, REVIEW, DESIGN, SUPPORT, FULL]
+SERVICES = [ZOOM, REVIEW, DESIGN, FULL]
 
 CONCEPT = dict(catch='引き算から生まれる、空間の美しさ。', paras=['自分たちが暮らす家が、どこよりもお気に入りの空間であってほしい。','そんな想いを大切に、一人ひとりの暮らし方や価値観に耳を傾けながら、その人らしい暮らしを提案しています。','建築とインテリアを分けず、空間全体をひとつのデザインとして考える。','余計な装飾を加えるのではなく、光の入り方や素材の質感、細部の納まりを大切に、時を重ねても愛着の深まる暮らしを目指しています。'])
 THEMES = [
@@ -88,11 +91,12 @@ ABOUT = ['家づくりは、単に間取りを決めることではなく、「�
 FAQ = [
  ('対応エリアは?','オンラインで全国対応しています。徳島県内の方には、所属工務店と連携した家づくりのサポートも、オンライン相談でご案内します。'),
  ('住宅会社が決まっていなくても相談できますか?','はい。まずは公式LINEからご相談ください。'),
- ('Zoom相談の料金は、その後のサービスに充当されますか?','間取り添削・間取り作成・設計デザインサポートを正式にお申し込みいただく場合、Zoom相談料(60分)は全額充当されます。Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。'),
+ ('Zoom相談の料金は、その後のサービスに充当されますか?','間取り添削・間取り作成を正式にお申し込みいただく場合、Zoom相談料(60分)は全額充当されます。Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。'),
  ('提案を住宅会社でそのまま採用できますか?','住宅会社によって、外部設計者の提案を採用できない場合があります。事前に住宅会社へご確認ください。'),
  ('現地調査はありますか?','現地調査は行いません。ご提供いただく敷地資料・現地写真・ご要望などをもとに提案します。'),
+ ('上記以外の設計やデザインの相談もできますか?','内装や照明など、ご要望に応じた個別のご相談にも対応できます。内容に応じて、別途お見積もりをご案内します。まずは公式LINEよりご相談ください。'),
  ('構造計算や申請、工事監理もお願いできますか?','構造計算・建築確認申請・実施設計・工事監理は含みません。お客様が選ばれた住宅会社にご確認ください。'),
- ('支払いはいつですか?','具体的な設計・デザイン提案は、ご入金確認後に開始します。間取り作成と設計デザインサポートは、ご入金前にZoomでヒアリングを行い、内容をご確認いただいてから、正式なお申し込みをお願いします。間取り添削は、ご入金のあと資料をお送りいただきます。'),
+ ('支払いはいつですか?','具体的な設計・デザイン提案は、ご入金確認後に開始します。間取り作成は、ご入金前にZoomでヒアリングを行い、内容をご確認いただいてから、正式なお申し込みをお願いします。間取り添削は、ご入金のあと資料をお送りいただきます。'),
  ('修正回数を超える場合は?','修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。'),
 ]
 NOTICE = ['本サービスはオンラインでの提案です。','現地調査は含みません。','提案内容の実現可能性は、住宅会社による確認が必要です。','構造計算・建築確認申請・実施設計・工事監理は含みません。','住宅会社の施工ルールや予算によって、変更が必要になる場合があります。','修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。','お客様からご提供いただいた資料をもとに検討します。']
@@ -107,13 +111,13 @@ def price_html(s, big=False):
 def ul(items, cls=''): return f'<ul class="{cls}">' + ''.join(f'<li>{e(i)}</li>' for i in items) + '</ul>'
 def ps(items): return ''.join(f'<p>{e(p)}</p>' for p in items)
 def img(k, alt='', cls='', lazy=True, w=None, h=None):
-    return f'<img src="img/{k}.jpg" alt="{e(alt)}" class="{cls}"{" loading=lazy" if lazy else ""} decoding="async">'
+    return f'<img src="{PFX}img/{k}.jpg" alt="{e(alt)}" class="{cls}"{" loading=lazy" if lazy else ""} decoding="async">'
 def line_btn(label='公式LINEで相談する', cls='btn'):
     return f'<a class="{cls}" href="{LINE}" target="_blank" rel="noopener"><span>{label}</span><i aria-hidden="true">→</i></a>'
 def sec(id_, en, ja, body, cls=''):
     return f'<section id="{id_}" class="sec {cls}"><div class="wrap"><header class="sh"><span class="en">{en}</span><h2>{ja}</h2></header>{body}</div></section>'
 
-NAV = [('concept','考え方','/#concept'),('services','サービス','/#services'),('profile','プロフィール','/#profile'),('faq','よくある質問','/#faq'),('contact','お問い合わせ','/#contact')]
+NAV = [('concept','考え方','/#concept'),('services','サービス','/#services'),('works','設計事例','/#works'),('profile','プロフィール','/#profile'),('faq','よくある質問','/#faq'),('contact','お問い合わせ','/#contact')]
 def navlink(a): return (L('') + a[2][1:]) if a[2].startswith('/#') else a[2]
 
 def head(title, desc, path, ogimg='ogp.jpg', jsonld=None, noindex=False):
@@ -129,7 +133,7 @@ def head(title, desc, path, ogimg='ogp.jpg', jsonld=None, noindex=False):
 <meta property="og:image" content="{BASE}/{ogimg}"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">{ld}</head>'''
+<link rel="stylesheet" href="{PFX}assets/style.css">{ld}</head>'''
 
 def header(home=False):
     links = ''.join(f'<a href="{navlink(a)}">{a[1]}</a>' for a in NAV)
@@ -145,7 +149,7 @@ def header(home=False):
 def footer():
     sv = ''.join(f'<a href="{L(s["slug"])}">{s["name"]}</a>' for s in SERVICES)
     return f'''<footer class="ft"><div class="wrap"><div class="ftg"><div><div class="logo"><span>宇山 朋希 <i>/</i> 建築士</span></div><p class="ftp">間取り・外観・照明まで、心地よく、美しい住まいを。</p></div>
-<div class="ftl"><span class="en">SERVICES</span>{sv}</div></div>
+<div class="ftl"><span class="en">SERVICES</span>{sv}<a href="{L('works/jitei')}">設計事例 自邸</a></div></div>
 <p class="copy">© 宇山 朋希 / Tomoki Uyama Architect</p></div></footer>
 <div class="fab"><a href="{LINE}" target="_blank" rel="noopener"><span>公式LINEで相談する</span></a></div>
 <script>(function(){{var b=document.getElementById('mb'),d=document.getElementById('drawer');if(!b)return;
@@ -155,14 +159,14 @@ var h=document.getElementById('hd');function s(){{h.classList.toggle('on',window
 
 def crumbs(items):  # items: [(name, path)]
     return {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':n,'item':BASE+('/' if p=='' else '/'+p)} for i,(n,p) in enumerate(items)]}
-ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成・設計デザインサポート。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE]}
+ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成。徳島県内は家づくりフルサポート。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE]}
 
 # ---------------- pages ----------------
 pages = {}
 
-def service_cards():
+def service_cards(lst):
     out = ''
-    for s in SERVICES:
+    for s in lst:
         loc = s["area"].startswith("徳島")
         z = s['slug'] == 'zoom-consultation'
         out += f'''<a class="sc{' sc-z' if z else ''}" href="{L(s['slug'])}"><span class="scbg">{img(s['img'], s['name'])}</span>
@@ -178,15 +182,22 @@ def top():
 <a class="btn btn-w" href="#services"><span>サービスを見る</span><i aria-hidden="true">↓</i></a></div></section>'''
     concept = sec('concept','DESIGN CONCEPT','デザインの考え方', f'''<div class="ctx"><p class="lead">{CONCEPT['catch']}</p>{ps(CONCEPT['paras'])}</div>''')
     services = sec('services','SERVICE','サービス・料金一覧', f'''<p class="intro">まずはZoom相談で、家づくりのお悩みをお聞かせください。各サービスへ直接お申し込みいただくことも可能です。</p>
-<div class="scl">{service_cards()}</div>
-<p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成・設計デザインサポートの本申込時に全額充当されます。</p>''', 'tint')
+<div class="sgrp"><div class="sgh"><h3>オンライン設計サービス</h3><span class="tag">全国対応</span></div><p class="sgd">ご自宅にいながら、Zoomと公式LINEで、建築士に相談・ご依頼いただけます。</p>
+<div class="scl">{service_cards([ZOOM, REVIEW, DESIGN])}</div>
+<p class="indiv">上記のほか、内装や照明など、ご要望に応じた個別のご相談にも対応します。内容に応じて、別途お見積もりをご案内します。</p></div>
+<div class="sgrp"><div class="sgh"><h3>家づくりフルサポート</h3><span class="tag loc">徳島県内</span></div><p class="sgd">設計から完成まで、一貫してサポートします。</p>
+<div class="scl">{service_cards([FULL])}</div></div>
+<p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成の本申込時に全額充当されます。</p>''', 'tint')
+    works = sec('works','WORKS','設計事例', f'''<a class="wk" href="{L('works/jitei')}"><span class="wkimg">{img('w-ext','自邸の外観')}</span>
+<span class="wkstrip"><span>{img('w-d2','自邸 昼の室内')}</span><span>{img('w-n4','自邸 夜の室内')}</span></span>
+<span class="wkt"><b>自邸</b><small>中庭のある住まい</small></span><span class="pill pill-d">詳しく見る</span></a>''')
     profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
-    body = header(True) + f'<main id="main">{hero}{concept}{services}{profile}{faq}{contact}</main>' + footer()
+    body = header(True) + f'<main id="main">{hero}{concept}{services}{works}{profile}{faq}{contact}</main>' + footer()
     jl = [ORG]
-    return head('間取り相談・間取り添削をオンラインで|建築士 宇山朋希','建築士・宇山朋希による、オンライン(全国対応)の間取り相談・間取り添削・間取り作成・設計デザインサポート。Zoom相談から、公式LINEで気軽にご相談いただけます。','',jsonld=jl) + body
+    return head('間取り相談・間取り添削をオンラインで|建築士 宇山朋希','建築士・宇山朋希による、オンライン(全国対応)の間取り相談・間取り添削・間取り作成。Zoom相談から、公式LINEで気軽にご相談いただけます。','',jsonld=jl) + body
 pages['index'] = top()
 
 def service_page(s):
@@ -220,6 +231,20 @@ def service_page(s):
     return head(s['title'], s['desc'], s['slug'], jsonld=[svc, crumbs([('TOP',''),(s['name'],s['slug'])])]) + header() + main + footer()
 for s in SERVICES: pages[s['slug']] = service_page(s)
 
+def work_page():
+    global PFX
+    PFX = '../'
+    sec_g = lambda en, ja, keys: f'<div class="wg"><header class="sh"><span class="en">{en}</span><h2>{ja}</h2></header><div class="gal">' + ''.join(f'<figure>{img(k, "自邸 "+ja)}</figure>' for k in keys) + '</div></div>'
+    main = f'''<main id="main"><section class="phero"><div class="wrap pheroin"><nav class="bc" aria-label="パンくず"><a href="{L('')}">TOP</a> / <a href="{L('')}#works">設計事例</a> / 自邸</nav>
+<p class="eyebrow">WORKS</p><h1>自邸</h1><p class="lead">木の天井、塗り壁、大判タイルと間接照明。中庭を囲んで、空間がつながる住まいです。</p>
+<dl class="spec"><div><dt>用途</dt><dd>専用住宅(自邸)</dd></div><div><dt>設計</dt><dd>宇山 朋希</dd></div></dl></div></section>
+<section class="sec wsec"><div class="wrap">{sec_g('EXTERIOR','外観',['w-ext'])}{sec_g('DAY','昼の室内',['w-d1','w-d2','w-d3','w-d4','w-d5','w-d6','w-d7'])}{sec_g('NIGHT','夜の室内',['w-n1','w-n2','w-n3','w-n4','w-n5'])}</div></section>
+<section class="sec cta-sec"><div class="wrap narrow"><div class="cta">{line_btn('公式LINEで相談する','btn btn-w')}</div></div></section></main>'''
+    out = head('自邸|設計事例|建築士 宇山朋希','建築士・宇山朋希が設計した自邸。木の天井、塗り壁、大判タイル、間接照明で構成した、中庭のある住まいの設計事例。','works/jitei',ogimg='img/w-ext.jpg',jsonld=[crumbs([('TOP',''),('設計事例','#works'),('自邸','works/jitei')])]) + header() + main + footer()
+    PFX = ''
+    return out
+pages['works/jitei'] = work_page()
+
 def design_page():
     blocks = ''
     for no,t,imgs,paras in THEMES:
@@ -234,7 +259,10 @@ shutil.rmtree(OUT, ignore_errors=True); os.makedirs(OUT + '/assets')
 shutil.copytree(ROOT + '/img', OUT + '/img')
 shutil.copy(ROOT + '/assets/style.css', OUT + '/assets/style.css')
 for f in ('ogp.jpg','robots.txt'): shutil.copy(ROOT + '/' + f, OUT + '/' + f)
-for k, v in pages.items(): open(f'{OUT}/{k}.html', 'w', encoding='utf8').write(v)
-urls = [''] + [s['slug'] for s in SERVICES] 
+for k, v in pages.items():
+    os.makedirs(os.path.dirname(f'{OUT}/{k}.html'), exist_ok=True)
+    open(f'{OUT}/{k}.html', 'w', encoding='utf8').write(v)
+open(OUT + '/_redirects', 'w').write('/design-support / 301\n')
+urls = [''] + [s['slug'] for s in SERVICES] + ['works/jitei'] 
 open(OUT + '/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{BASE}/{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 print('ok', len(pages), 'pages')

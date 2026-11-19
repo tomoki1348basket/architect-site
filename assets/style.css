@@ -187,3 +187,24 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .smp figcaption{font-size:12.5px;letter-spacing:.14em;color:var(--sub);margin-top:8px}
 .smp figure:first-child img{background:#fff}
 @media(min-width:760px){.smp{grid-template-columns:1fr 1fr;gap:28px}.smp figure:first-child{grid-column:1/-1}}
+/* v3: service groups / works */
+.sgrp{margin-top:44px}.sgrp:first-of-type{margin-top:8px}
+.sgh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}.sgh h3{font-weight:600;font-size:19px;letter-spacing:.12em;line-height:1.6}
+.sgd{font-size:13px;color:var(--sub);margin-bottom:18px;line-height:1.9}
+.indiv{font-size:13px;color:var(--sub);margin-top:18px;line-height:1.95;padding-left:14px;border-left:2px solid var(--line)}
+.wk{display:block}
+.wkimg{display:block;aspect-ratio:4/5;overflow:hidden}
+.wkstrip{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.wkstrip span{display:block;aspect-ratio:1/1;overflow:hidden}
+.wkt{display:flex;align-items:baseline;gap:14px;margin-top:18px}.wkt b{font-size:22px;font-weight:600;letter-spacing:.2em}.wkt small{font-size:13px;color:var(--sub);letter-spacing:.14em}
+.pill-d{display:inline-block;margin-top:14px;border:1px solid var(--acc);color:var(--ink)}
+.wk:hover .pill-d{background:var(--cta);color:#fff;border-color:var(--cta)}
+.spec{display:flex;gap:36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-top:22px}.spec dt{font-size:11px;letter-spacing:.24em;color:var(--acc)}.spec dd{font-size:15px;letter-spacing:.1em}
+.wsec{padding-top:44px}.wg{margin-bottom:64px}.wg .sh{margin-bottom:20px}.wg .sh .en{font-size:20px}
+.gal{display:grid;gap:12px}.gal figure{aspect-ratio:3/4;overflow:hidden}.gal img{object-position:center 45%}
+@media(min-width:760px){
+ .sgh h3{font-size:22px}
+ .sgrp .scl{grid-template-columns:1fr 1fr}.sgrp .scl .sc-z{grid-column:1/-1}
+ .sgrp:last-of-type .scl{grid-template-columns:1fr}
+ .wk{display:grid;grid-template-columns:7fr 5fr;gap:12px 40px;align-items:end}.wkimg{grid-row:1/3;aspect-ratio:4/5}.wkstrip{margin:0;align-self:start}.wkt{margin-top:0;flex-direction:column;gap:6px;align-self:end}.pill-d{justify-self:start}
+ .gal{grid-template-columns:1fr 1fr;gap:16px}.wg:first-child .gal{grid-template-columns:minmax(0,520px)}
+}
