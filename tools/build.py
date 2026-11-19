@@ -176,7 +176,7 @@ def service_cards(lst):
         out += f'''<a class="sc{' sc-z' if z else ''}" href="{L(s['slug'])}"><span class="scbg">{img(s['img'], s['name'])}</span>
 <span class="scin"><span class="sce">{s['no']} | {s['en']}</span><b>{s['name']}</b>
 <span class="scm"><span class="tag{' loc' if loc else ''}">{s['area']}</span>{('<span class="tag">家づくりの相談窓口</span>' if z else '')}</span>
-<span class="scd">{e(s['short'])}</span>{price_html(s)}<span class="pill">詳細を見る</span></span></a>'''
+<span class="scd">{e(s['short'])}</span><span class="pill">詳細を見る</span></span></a>'''
     return out
 
 def top():
@@ -191,7 +191,7 @@ def top():
 <p class="indiv">上記のほか、内装や照明など、ご要望に応じた個別のご相談にも対応します。内容に応じて、別途お見積もりをご案内します。</p></div>
 <div class="sgrp"><div class="sgh"><h3>家づくりフルサポート</h3><span class="tag loc">徳島県内</span></div><p class="sgd">設計から完成まで、一貫してサポートします。</p>
 <div class="scl">{service_cards([FULL])}</div></div>
-<p class="svnote">料金は税抜表示、税込を併記しています。Zoom相談料は、間取り添削・間取り作成の本申込時に全額充当されます。</p>''', 'tint')
+''', 'tint')
     works = sec('works','WORKS','設計事例', f'''<a class="wk" href="{L('works/jitei')}"><span class="wkimg">{img('w-ext','自邸の外観')}</span>
 <span class="wkstrip"><span>{img('w-d2','自邸 昼の室内')}</span><span>{img('w-n4','自邸 夜の室内')}</span></span>
 <span class="wkt"><b>自邸</b><small>中庭のある住まい</small></span><span class="pill pill-d">詳しく見る</span></a>''')
