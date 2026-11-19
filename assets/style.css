@@ -217,3 +217,17 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .mwork .wg:first-child figure{aspect-ratio:4/5}
 .mwork .cta-sec .wrap{padding-left:24px;padding-right:24px}
 @media(min-width:760px){.mwork .wrap{max-width:900px;padding-left:40px;padding-right:40px}.mwork .gal,.mwork .wg:first-child .gal{grid-template-columns:1fr;gap:80px}.mwork .wg:first-child figure{aspect-ratio:4/3}}
+/* お申し込み案内・Zoom対応時間 */
+.hrs{margin-top:8px;padding:16px 18px;border:1px solid var(--line);font-size:13px;line-height:1.8}
+.hrs b{display:block;font-weight:600;letter-spacing:.12em;font-size:13px;margin-bottom:6px}
+.hrs dl div,.hrs-c dl div{display:flex;gap:14px}
+.hrs dt,.hrs-c dt{min-width:7.5em;color:var(--sub)}
+.hrs p{font-size:12px;color:var(--sub);margin-top:6px}
+.cg{display:grid;gap:14px;max-width:620px;margin:0 auto 32px;text-align:left}
+.cgi{padding:18px 20px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.18);font-size:13px;line-height:1.9;margin:0}
+.cgi b{display:block;font-weight:600;letter-spacing:.12em;margin-bottom:6px}
+.cgi li{padding-left:1em;text-indent:-1em}
+.cgi li:before{content:"・"}
+.contact .cgi p{margin:6px 0 0;font-size:12px;color:#e6d8c3}
+.contact .hrs-c dt{color:#e6d8c3}
+@media(min-width:760px){.cg{grid-template-columns:1fr 1fr}}
