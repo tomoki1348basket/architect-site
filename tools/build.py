@@ -4,6 +4,7 @@
 import sys, os, shutil, html, json
 OUT = sys.argv[1]; PREVIEW = '--preview' in sys.argv
 EXT = '.html' if PREVIEW else ''
+SHOW_WORKS = False  # WORKS(自邸)は写真の撮り直し後に True にして公開する
 BASE = 'https://tomo-architect.com'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LINE = 'https://lin.ee/RltCpPb'
@@ -117,7 +118,8 @@ def line_btn(label='公式LINEで相談する', cls='btn'):
 def sec(id_, en, ja, body, cls=''):
     return f'<section id="{id_}" class="sec {cls}"><div class="wrap"><header class="sh"><span class="en">{en}</span><h2>{ja}</h2></header>{body}</div></section>'
 
-NAV = [('concept','考え方','/#concept'),('services','サービス','/#services'),('works','設計事例','/#works'),('profile','プロフィール','/#profile'),('faq','よくある質問','/#faq'),('contact','お問い合わせ','/#contact')]
+NAV = [('concept','考え方','/#concept'),('services','サービス','/#services'),('profile','プロフィール','/#profile'),('faq','よくある質問','/#faq'),('contact','お問い合わせ','/#contact')]
+if SHOW_WORKS: NAV.insert(2, ('works','設計事例','/#works'))
 def navlink(a): return (L('') + a[2][1:]) if a[2].startswith('/#') else a[2]
 
 def head(title, desc, path, ogimg='ogp.jpg', jsonld=None, noindex=False):
@@ -147,9 +149,10 @@ def header(home=False):
 {line_btn()}</div>'''
 
 def footer():
+    WORKS_FT = f'<a href="{L("works/jitei")}">設計事例 自邸</a>' if SHOW_WORKS else ''
     sv = ''.join(f'<a href="{L(s["slug"])}">{s["name"]}</a>' for s in SERVICES)
     return f'''<footer class="ft"><div class="wrap"><div class="ftg"><div><div class="logo"><span>宇山 朋希 <i>/</i> 建築士</span></div><p class="ftp">間取り・外観・照明まで、心地よく、美しい住まいを。</p></div>
-<div class="ftl"><span class="en">SERVICES</span>{sv}<a href="{L('works/jitei')}">設計事例 自邸</a></div></div>
+<div class="ftl"><span class="en">SERVICES</span>{sv}{WORKS_FT}</div></div>
 <p class="copy">© 宇山 朋希 / Tomoki Uyama Architect</p></div></footer>
 <div class="fab"><a href="{LINE}" target="_blank" rel="noopener"><span>公式LINEで相談する</span></a></div>
 <script>(function(){{var b=document.getElementById('mb'),d=document.getElementById('drawer');if(!b)return;
@@ -195,7 +198,7 @@ def top():
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
-    body = header(True) + f'<main id="main">{hero}{concept}{services}{works}{profile}{faq}{contact}</main>' + footer()
+    body = header(True) + f'<main id="main">{hero}{concept}{services}{works if SHOW_WORKS else ''}{profile}{faq}{contact}</main>' + footer()
     jl = [ORG]
     return head('間取り相談・間取り添削をオンラインで|建築士 宇山朋希','建築士・宇山朋希による、オンライン(全国対応)の間取り相談・間取り添削・間取り作成。Zoom相談から、公式LINEで気軽にご相談いただけます。','',jsonld=jl) + body
 pages['index'] = top()
@@ -243,7 +246,7 @@ def work_page():
     out = head('自邸|設計事例|建築士 宇山朋希','建築士・宇山朋希が設計した自邸。木の天井、塗り壁、大判タイル、間接照明で構成した、中庭のある住まいの設計事例。','works/jitei',ogimg='img/w-ext.jpg',jsonld=[crumbs([('TOP',''),('設計事例','#works'),('自邸','works/jitei')])]) + header() + main + footer()
     PFX = ''
     return out
-pages['works/jitei'] = work_page()
+if SHOW_WORKS: pages['works/jitei'] = work_page()
 
 def design_page():
     blocks = ''
@@ -263,6 +266,6 @@ for k, v in pages.items():
     os.makedirs(os.path.dirname(f'{OUT}/{k}.html'), exist_ok=True)
     open(f'{OUT}/{k}.html', 'w', encoding='utf8').write(v)
 open(OUT + '/_redirects', 'w').write('/design-support / 301\n')
-urls = [''] + [s['slug'] for s in SERVICES] + ['works/jitei'] 
+urls = [''] + [s['slug'] for s in SERVICES] + (['works/jitei'] if SHOW_WORKS else []) 
 open(OUT + '/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{BASE}/{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 print('ok', len(pages), 'pages')
