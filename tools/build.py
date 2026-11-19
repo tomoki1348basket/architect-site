@@ -113,7 +113,7 @@ NOTES = ['料金は税抜価格です。税込価格(10%)も併記していま�
 def price_html(s, big=False):
     if 'price' in s:
         u = f'<span class="u">/{s["unit"]}</span>' if s.get('unit') else ''
-        return f'<span class="pr"><b>{yen(s["price"])}</b>円{u}<small>(税抜)・税込{tax(s["price"])}円</small></span>'
+        return f'<span class="pr"><b>{yen(s["price"])}</b>円{u}<small>(税抜)</small><span class="tx">税込 <em>{tax(s["price"])}</em>円</span></span>'
     return f'<span class="pr"><b class="t">{s["priceText"]}</b></span>'
 def ul(items, cls=''): return f'<ul class="{cls}">' + ''.join(f'<li>{e(i)}</li>' for i in items) + '</ul>'
 def ps(items): return ''.join(f'<p>{e(p)}</p>' for p in items)
