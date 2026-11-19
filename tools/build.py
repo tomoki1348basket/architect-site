@@ -235,7 +235,7 @@ def work_page():
     global PFX
     PFX = '../'
     sec_g = lambda en, ja, keys: f'<div class="wg"><header class="sh"><span class="en">{en}</span><h2>{ja}</h2></header><div class="gal">' + ''.join(f'<figure>{img(k, "自邸 "+ja)}</figure>' for k in keys) + '</div></div>'
-    main = f'''<main id="main"><section class="phero"><div class="wrap pheroin"><nav class="bc" aria-label="パンくず"><a href="{L('')}">TOP</a> / <a href="{L('')}#works">設計事例</a> / 自邸</nav>
+    main = f'''<main id="main" class="mwork"><section class="phero"><div class="wrap pheroin"><nav class="bc" aria-label="パンくず"><a href="{L('')}">TOP</a> / <a href="{L('')}#works">設計事例</a> / 自邸</nav>
 <p class="eyebrow">WORKS</p><h1>自邸</h1><p class="lead">木の天井、塗り壁、大判タイルと間接照明。中庭を囲んで、空間がつながる住まいです。</p>
 <dl class="spec"><div><dt>用途</dt><dd>専用住宅(自邸)</dd></div><div><dt>設計</dt><dd>宇山 朋希</dd></div></dl></div></section>
 <section class="sec wsec"><div class="wrap">{sec_g('EXTERIOR','外観',['w-ext'])}{sec_g('DAY','昼の室内',['w-d1','w-d2','w-d3','w-d4','w-d5','w-d6','w-d7'])}{sec_g('NIGHT','夜の室内',['w-n1','w-n2','w-n3','w-n4','w-n5'])}</div></section>

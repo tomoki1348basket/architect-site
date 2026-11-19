@@ -208,3 +208,12 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
  .wk{display:grid;grid-template-columns:7fr 5fr;gap:12px 40px;align-items:end}.wkimg{grid-row:1/3;aspect-ratio:4/5}.wkstrip{margin:0;align-self:start}.wkt{margin-top:0;flex-direction:column;gap:6px;align-self:end}.pill-d{justify-self:start}
  .gal{grid-template-columns:1fr 1fr;gap:16px}.wg:first-child .gal{grid-template-columns:minmax(0,520px)}
 }
+/* works page: wider margins, landscape photos (reference-style) */
+.mwork .wrap{padding-left:10%;padding-right:10%}
+.mwork .wsec{padding-top:30px}
+.mwork .wg{margin-bottom:96px}
+.mwork .gal{gap:56px}
+.mwork .gal figure{aspect-ratio:4/3}
+.mwork .wg:first-child figure{aspect-ratio:4/5}
+.mwork .cta-sec .wrap{padding-left:24px;padding-right:24px}
+@media(min-width:760px){.mwork .wrap{max-width:900px;padding-left:40px;padding-right:40px}.mwork .gal,.mwork .wg:first-child .gal{grid-template-columns:1fr;gap:80px}.mwork .wg:first-child figure{aspect-ratio:4/3}}
