@@ -231,3 +231,5 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .contact .cgi p{margin:6px 0 0;font-size:12px;color:#e6d8c3}
 .contact .hrs-c dt{color:#e6d8c3}
 @media(min-width:760px){.cg{grid-template-columns:1fr 1fr}}
+/* 個別相談の案内を読みやすく */
+.indiv{font-size:14.5px;color:var(--ink);opacity:.85}
