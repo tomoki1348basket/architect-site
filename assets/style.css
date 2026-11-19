@@ -231,3 +231,10 @@ body{font-size:16px;padding-bottom:0}.fab{display:none}
 .contact .cgi p{margin:6px 0 0;font-size:12px;color:#e6d8c3}
 .contact .hrs-c dt{color:#e6d8c3}
 @media(min-width:760px){.cg{grid-template-columns:1fr 1fr}}
+/* 税込価格をはっきり表示 */
+.pr .tx{display:block;font-size:13px;font-weight:600;color:var(--ink);letter-spacing:.06em;margin-top:2px}
+.pr .tx em{font-style:normal;font-size:16px;letter-spacing:.04em}
+.pbox .pr .tx{font-size:14px}
+.pbox .pr .tx em{font-size:19px}
+.sc .pr .tx{color:#fff}
+.sc .pr .tx em{font-size:17px}
