@@ -65,16 +65,16 @@ SUPPORT = dict(slug='design-support', no='03', en='DESIGN SUPPORT', name='設計
   quote=['料金は個別お見積もりです。ご相談内容やご希望のサポート範囲に応じて、お見積もりいたします。','業務範囲・納品物・修正回数・対応期間は、ご依頼内容に応じて決定します。','まずは公式LINEよりお気軽にご相談ください。'],
   flow=[['お問い合わせ','公式LINEより、ご相談内容やご希望のサポート内容をお聞かせください。'],['資料のご提出・オンラインヒアリング(Zoom)','必要な資料をご提出いただき、現在の家づくりの状況やお悩み、ご要望などを詳しくお伺いします。'],['お見積もり','ヒアリング内容をもとに、サポート範囲や料金をご提案します。'],['お申し込み・ご入金','お見積もり内容をご確認いただき、正式なお申し込みとご入金をお願いいたします。'],['デザイン提案','ご依頼内容に合わせたデザインをご提案します。'],['納品・オンライン解説','Zoomにてご提案内容やデザインの意図を詳しくご説明します。継続的なサポートの場合は、ご契約内容に応じて進めていきます。']],
   fix='修正回数は、ご依頼内容に応じてお見積もり時にご案内します。')
-FULL = dict(slug='full-support', no='03', en='TOTAL HOME DESIGN', name='家づくりフルサポート', area='徳島県内限定', priceText='Zoomでご案内', img='ext',
+FULL = dict(slug='full-support', no='03', en='ARCHITECTURE & DESIGN', name='建築設計・デザイン', area='徳島県内限定', priceText='Zoomでご案内', img='ext',
   short='所属工務店と連携し、お家の完成までを一貫してサポートします。',
-  title='家づくりフルサポート|徳島県内で建築士と工務店が連携して家づくり',
-  desc='徳島県内限定。建築士が所属工務店と連携し、間取り・外観・内装・照明まで一貫したデザインでお家の完成までサポートします。',
+  title='建築設計・デザイン|徳島県内で建築士が設計から完成までサポート',
+  desc='徳島県内限定。建築士が所属工務店と連携し、間取り・外観・内装・照明まで一貫したデザインで、設計から完成までサポートします。住宅を中心に、店舗などのご相談もお受けします。',
   lead='これから徳島県内で家づくりを検討されている方に向けたサービスです。',
   more=['所属する工務店と連携し、間取り・外観・内装・照明まで一貫性のあるデザインをご提案し、お家の完成までサポートいたします。','建築とインテリアをひとつのデザインとして考え、お客様にとって一番お気に入りの空間となる住まいを目指します。'],
   fit=['徳島県内で家づくりを検討している','設計から完成まで一貫して任せたい','デザインにこだわった家をつくりたい'],
   points=['間取り・外観・内装・照明まで、一貫性のあるデザイン提案','所属する工務店と連携し、お家の完成までサポート'],
   pointsTitle='サービスの特徴',
-  extra=['全国対応のオンラインサービスとは異なり、所属する工務店と連携して、お家の完成までサポートするサービスです。'],
+  extra=['全国対応のオンラインサービスとは異なり、所属する工務店と連携して、お家の完成までサポートするサービスです。','住宅を中心に、店舗などのご相談もお受けします。'],
   notes=['本サービスは、所属工務店と連携して提供するものです。施工・工事は工務店が担当します。','全国対応のオンラインサービスとは異なり、徳島県内限定のサービスです。'],
   flow=[['お問い合わせ','公式LINEからお問い合わせください。'],['オンライン相談(Zoom)','お問い合わせいただいた後、オンライン相談(Zoom)にて詳細をご案内いたします。']],
   fix=None, btn='家づくりについて相談する')
@@ -163,7 +163,7 @@ var h=document.getElementById('hd');function s(){{h.classList.toggle('on',window
 
 def crumbs(items):  # items: [(name, path)]
     return {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':n,'item':BASE+('/' if p=='' else '/'+p)} for i,(n,p) in enumerate(items)]}
-ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成。徳島県内は家づくりフルサポート。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE, INSTA]}
+ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成。徳島県内は建築設計・デザイン。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE, INSTA]}
 
 # ---------------- pages ----------------
 pages = {}
@@ -189,7 +189,7 @@ def top():
 <div class="sgrp"><div class="sgh"><h3>オンライン設計サービス</h3><span class="tag">全国対応</span></div><p class="sgd">ご自宅にいながら、Zoomと公式LINEで、建築士に相談・ご依頼いただけます。</p>
 <div class="scl">{service_cards([ZOOM, REVIEW, DESIGN])}</div>
 <p class="indiv">上記のほか、内装や照明など、ご要望に応じた個別のご相談にも対応します。内容に応じて、別途お見積もりをご案内します。</p></div>
-<div class="sgrp"><div class="sgh"><h3>家づくりフルサポート</h3><span class="tag loc">徳島県内</span></div><p class="sgd">設計から完成まで、一貫してサポートします。</p>
+<div class="sgrp"><div class="sgh"><h3>建築設計・デザイン</h3><span class="tag loc">徳島県内</span></div><p class="sgd">設計から完成まで、一貫してサポートします。</p>
 <div class="scl">{service_cards([FULL])}</div></div>
 ''', 'tint')
     works = sec('works','WORKS','設計事例', f'''<a class="wk" href="{L('works/jitei')}"><span class="wkimg">{img('w-ext','自邸の外観')}</span>
