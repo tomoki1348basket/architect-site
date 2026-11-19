@@ -89,7 +89,7 @@ THEMES = [
  ('05','建築と自然',['m3','m4'],['庭や植栽は、建築を完成させる大切な要素のひとつです。','室内から見える樹木の位置、窓から切り取る景色、季節によって変化する光と影。','建物と庭を一体で考え、自然を身近に感じられる住まいをつくります。']),
 ]
 APPROACH = {'title':'デザインにこだわった家づくりを、もっと身近に。','paras':['建築家や設計事務所に住宅の設計・監理を依頼する場合、工事費の8〜10%程度、あるいはそれ以上の設計監理料が必要となるケースがあります。','例えば建築工事費3,000万円の場合、8〜10%で約240〜300万円。','一般的な設計事務所では、デザイン提案だけでなく、実施設計・各種申請・工事監理なども担当します。','一方、私のサービスでは、間取り・外観・インテリアのデザイン提案に業務を絞り、{P}円(税抜)でご提供しています。','実施設計・構造計算・建築確認申請・工事監理などは、お客様が選ばれた住宅会社にご担当いただく形です。','それぞれの役割を分担することで、デザインにこだわった住まいづくりを、より身近な形でサポートします。'],'note':'※設計監理料の割合は一例です。一般的な設計監理サービスとは業務範囲が異なり、住宅会社側で別途費用が必要になる場合があります。'}
-ABOUT = ['家づくりは、単に間取りを決めることではなく、「その土地で、どんな暮らしをしたいか」を考えることだと思っています。','建築士として、敷地の特性や暮らし方を丁寧に読み解き、デザインと暮らしやすさのバランスがとれた空間をご提案します。','私自身も自邸を設計し、日々の暮らしを通して、設計段階では気づかなかった発見や学びがあります。','建築士としての知識や経験だけでなく、実際に暮らしているからこそ感じることも、皆さまの家づくりにお伝えできればと思っています。']
+ABOUT = ['現場監督として建築の経験を積んだのち、現在は建築士として、住宅の設計・デザインに携わっています。','設計において大切にしているのは、流行に左右されない普遍的なデザインです。','一時的なトレンドや見た目の美しさだけでなく、素材本来の質感や光の入り方、細部の納まりを大切に、時を重ねても愛着を持ち続けられる空間を目指しています。','私自身も自邸を設計し、日々の暮らしを通して、新たな発見や学びを得ています。','建築士としての知識や経験、そして住まい手としての視点を活かし、一人ひとりにとって、自分の家が一番のお気に入りの場所になるような空間をご提案します。']
 FAQ = [
  ('対応エリアは?','オンラインで全国対応しています。徳島県内の方には、所属工務店と連携した家づくりのサポートも、オンライン相談でご案内します。'),
  ('住宅会社が決まっていなくても相談できますか?','はい。まずは公式LINEからご相談ください。'),
@@ -195,7 +195,7 @@ def top():
     works = sec('works','WORKS','設計事例', f'''<a class="wk" href="{L('works/jitei')}"><span class="wkimg">{img('w-ext','自邸の外観')}</span>
 <span class="wkstrip"><span>{img('w-d2','自邸 昼の室内')}</span><span>{img('w-n4','自邸 夜の室内')}</span></span>
 <span class="wkt"><b>自邸</b><small>中庭のある住まい</small></span><span class="pill pill-d">詳しく見る</span></a>''')
-    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}<a class="more" href="{INSTA}" target="_blank" rel="noopener">Instagramで自邸を見る <i>→</i></a></div></div>''')
+    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">流行に左右されない、<br>普遍的なデザインを。</p>{ps(ABOUT)}<a class="more" href="{INSTA}" target="_blank" rel="noopener">Instagramで自邸を見る <i>→</i></a></div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
