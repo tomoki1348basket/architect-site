@@ -8,6 +8,7 @@ SHOW_WORKS = False  # WORKS(自邸)は写真の撮り直し後に True にして
 BASE = 'https://tomo-architect.com'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LINE = 'https://lin.ee/RltCpPb'
+INSTA = 'https://www.instagram.com/tomo_arch_house/'
 tax = lambda p: f'{round(p*1.1):,}'
 yen = lambda p: f'{p:,}'
 e = html.escape
@@ -152,7 +153,7 @@ def footer():
     WORKS_FT = f'<a href="{L("works/jitei")}">設計事例 自邸</a>' if SHOW_WORKS else ''
     sv = ''.join(f'<a href="{L(s["slug"])}">{s["name"]}</a>' for s in SERVICES)
     return f'''<footer class="ft"><div class="wrap"><div class="ftg"><div><div class="logo"><span>宇山 朋希 <i>/</i> 建築士</span></div><p class="ftp">間取り・外観・照明まで、心地よく、美しい住まいを。</p></div>
-<div class="ftl"><span class="en">SERVICES</span>{sv}{WORKS_FT}</div></div>
+<div class="ftl"><span class="en">SERVICES</span>{sv}{WORKS_FT}<span class="en" style="margin-top:14px">INSTAGRAM</span><a href="{INSTA}" target="_blank" rel="noopener">@tomo_arch_house</a></div></div>
 <p class="copy">© 宇山 朋希 / Tomoki Uyama Architect</p></div></footer>
 <div class="fab"><a href="{LINE}" target="_blank" rel="noopener"><span>公式LINEで相談する</span></a></div>
 <script>(function(){{var b=document.getElementById('mb'),d=document.getElementById('drawer');if(!b)return;
@@ -162,7 +163,7 @@ var h=document.getElementById('hd');function s(){{h.classList.toggle('on',window
 
 def crumbs(items):  # items: [(name, path)]
     return {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':n,'item':BASE+('/' if p=='' else '/'+p)} for i,(n,p) in enumerate(items)]}
-ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成。徳島県内は家づくりフルサポート。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE]}
+ORG = {'@context':'https://schema.org','@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/','image':BASE+'/ogp.jpg','description':'オンラインで全国対応。間取り相談・間取り添削・間取り作成。徳島県内は家づくりフルサポート。','areaServed':'JP','founder':{'@type':'Person','name':'宇山 朋希','jobTitle':'建築士'},'sameAs':[LINE, INSTA]}
 
 # ---------------- pages ----------------
 pages = {}
@@ -194,7 +195,7 @@ def top():
     works = sec('works','WORKS','設計事例', f'''<a class="wk" href="{L('works/jitei')}"><span class="wkimg">{img('w-ext','自邸の外観')}</span>
 <span class="wkstrip"><span>{img('w-d2','自邸 昼の室内')}</span><span>{img('w-n4','自邸 夜の室内')}</span></span>
 <span class="wkt"><b>自邸</b><small>中庭のある住まい</small></span><span class="pill pill-d">詳しく見る</span></a>''')
-    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}</div></div>''')
+    profile = sec('profile','ABOUT','私について', f'''<div class="pf"><div class="pimg">{img('about','宇山朋希')}</div><div class="ptx"><span class="role">建築士</span><p class="name">宇山 朋希</p><span class="rom">Tomoki Uyama</span><span class="org" aria-hidden="true"></span><p class="lead">その土地で、どんな暮らしをしたいか。</p>{ps(ABOUT)}<a class="more" href="{INSTA}" target="_blank" rel="noopener">Instagramで自邸を見る <i>→</i></a></div></div>''')
     faq = sec('faq','FAQ','よくある質問', '<div class="faq">' + ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q,a in FAQ) + '</div>' + f'<div class="notice"><b>ご利用にあたって</b>{ul(NOTICE)}{ul(NOTES,"notes")}</div>', 'tint')
     contact = f'''<section id="contact" class="sec contact"><div class="cbg">{img('s2','')}</div><div class="wrap cin"><span class="en">CONTACT</span><h2>まずは、公式LINEから。</h2>
 <p>ご相談・ご質問だけでも大丈夫です。<br>住宅会社が決まっていなくても、お気軽にご連絡ください。</p>{line_btn('公式LINEで相談する','btn btn-w')}<small>お返事は順次、LINEにてご連絡します。</small></div></section>'''
