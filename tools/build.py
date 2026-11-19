@@ -35,7 +35,7 @@ ZOOM = dict(slug='zoom-consultation', no='00', en='ZOOM CONSULTATION', name='Zoo
 REVIEW = dict(slug='floorplan-review', no='01', en='FLOOR PLAN REVIEW', name='間取り添削', area='全国対応', price=50000, img='s2',
   short='提案済みの間取りを、建築士の視点で見直します。',
   title='間取り添削|住宅会社の間取りを建築士がオンラインで改善提案',
-  desc='工務店・ハウスメーカーから提案された間取りを、建築士が生活動線・採光・収納・デザインの視点で赤ペン添削。税抜50,000円、全国オンライン対応。',
+  desc='工務店・ハウスメーカーから提案された間取りを、建築士が生活動線・採光・収納・デザインの視点で赤ペン添削。税込55,000円、全国オンライン対応。',
   lead='現在ご提案されている間取りをもとに、生活動線や空間のつながり、採光、家具の配置、デザイン性など、さまざまな視点から改善点をご提案します。',
   more=['工務店やハウスメーカーから提案された間取りに不安がある方や、より良い間取りを検討したい方に向けたサービスです。'],
   fit=['提案された間取りにしっくりこない','間取りをもっと良くできないか知りたい','別の建築士の意見を聞きたい','住宅会社との打ち合わせ前に改善点を整理したい'],
@@ -46,7 +46,7 @@ REVIEW = dict(slug='floorplan-review', no='01', en='FLOOR PLAN REVIEW', name='�
 DESIGN = dict(slug='floorplan-design', no='02', en='FLOOR PLAN DESIGN', name='間取り作成', area='全国対応', price=180000, img='plan',
   short='暮らし方と敷地に合わせて、間取りを一からご提案します。',
   title='間取り作成|建築士が間取り・外観パース・内装パースをオンラインで提案',
-  desc='暮らし方・ご要望・敷地条件をもとに、建築士が間取りを一から作成。外観パース・LDK内装パース付き、税抜180,000円、全国オンライン対応。',
+  desc='暮らし方・ご要望・敷地条件をもとに、建築士が間取りを一から作成。外観パース・LDK内装パース付き、税込198,000円、全国オンライン対応。',
   lead='お客様の暮らし方やご要望、敷地条件に合わせて、間取りを一からご提案します。',
   more=['間取りだけでなく、外観や内装とのつながりも意識し、建築とインテリアが調和する空間を目指します。','すでに工務店やハウスメーカーが決まっている方もご利用いただけます。'],
   fit=['間取りを一から考えてほしい','住宅会社からの提案に満足できない','間取りと外観を統一してデザインしたい','内装まで含めて空間全体を考えてほしい','自分たちらしい住まいを実現したい'],
@@ -91,7 +91,7 @@ THEMES = [
  ('04','家具とインテリア',['d3'],['建物が完成したときではなく、家具が入り、暮らしが始まったときの美しさまで考える。','ソファやダイニングテーブルの配置、家具の高さや素材、アートや小物とのバランス。','必要に応じて具体的な家具やメーカー・品番まで選定し、建築とインテリアが自然に調和する空間を目指します。']),
  ('05','建築と自然',['m3','m4'],['庭や植栽は、建築を完成させる大切な要素のひとつです。','室内から見える樹木の位置、窓から切り取る景色、季節によって変化する光と影。','建物と庭を一体で考え、自然を身近に感じられる住まいをつくります。']),
 ]
-APPROACH = {'title':'デザインにこだわった家づくりを、もっと身近に。','paras':['建築家や設計事務所に住宅の設計・監理を依頼する場合、工事費の8〜10%程度、あるいはそれ以上の設計監理料が必要となるケースがあります。','例えば建築工事費3,000万円の場合、8〜10%で約240〜300万円。','一般的な設計事務所では、デザイン提案だけでなく、実施設計・各種申請・工事監理なども担当します。','一方、私のサービスでは、間取り・外観・インテリアのデザイン提案に業務を絞り、{P}円(税抜)でご提供しています。','実施設計・構造計算・建築確認申請・工事監理などは、お客様が選ばれた住宅会社にご担当いただく形です。','それぞれの役割を分担することで、デザインにこだわった住まいづくりを、より身近な形でサポートします。'],'note':'※設計監理料の割合は一例です。一般的な設計監理サービスとは業務範囲が異なり、住宅会社側で別途費用が必要になる場合があります。'}
+APPROACH = {'title':'デザインにこだわった家づくりを、もっと身近に。','paras':['建築家や設計事務所に住宅の設計・監理を依頼する場合、工事費の8〜10%程度、あるいはそれ以上の設計監理料が必要となるケースがあります。','例えば建築工事費3,000万円の場合、8〜10%で約240〜300万円。','一般的な設計事務所では、デザイン提案だけでなく、実施設計・各種申請・工事監理なども担当します。','一方、私のサービスでは、間取り・外観・インテリアのデザイン提案に業務を絞り、{P}円(税込)でご提供しています。','実施設計・構造計算・建築確認申請・工事監理などは、お客様が選ばれた住宅会社にご担当いただく形です。','それぞれの役割を分担することで、デザインにこだわった住まいづくりを、より身近な形でサポートします。'],'note':'※設計監理料の割合は一例です。一般的な設計監理サービスとは業務範囲が異なり、住宅会社側で別途費用が必要になる場合があります。'}
 ABOUT = ['現場監督として建築の経験を積んだのち、現在は建築士として、住宅の設計・デザインに携わっています。','設計において大切にしているのは、流行に左右されない普遍的なデザインです。','一時的なトレンドや見た目の美しさだけでなく、素材本来の質感や光の入り方、細部の納まりを大切に、時を重ねても愛着を持ち続けられる空間を目指しています。','私自身も自邸を設計し、日々の暮らしを通して、新たな発見や学びを得ています。','建築士としての知識や経験、そして住まい手としての視点を活かし、一人ひとりにとって、自分の家が一番のお気に入りの場所になるような空間をご提案します。']
 FAQ = [
  ('対応エリアは?','オンラインで全国対応しています。徳島県内の方には、所属工務店と連携した家づくりのサポートも、オンライン相談でご案内します。'),
@@ -107,13 +107,13 @@ FAQ = [
  ('修正回数を超える場合は?','修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。'),
 ]
 NOTICE = ['本サービスはオンラインでの提案です。','現地調査は含みません。','提案内容の実現可能性は、住宅会社による確認が必要です。','構造計算・建築確認申請・実施設計・工事監理は含みません。','住宅会社の施工ルールや予算によって、変更が必要になる場合があります。','修正回数を超える変更や大幅な再設計は、別途お見積もりとなる場合があります。','お客様からご提供いただいた資料をもとに検討します。']
-NOTES = ['料金は税抜価格です。税込価格(10%)も併記しています。','制作開始前にお振込みをお願いしております。','著作権は当方に帰属します。事例として公開する場合は事前に許可をいただきます。']
+NOTES = ['料金はすべて税込価格です。','制作開始前にお振込みをお願いしております。','著作権は当方に帰属します。事例として公開する場合は事前に許可をいただきます。']
 
 # ---------------- helpers ----------------
 def price_html(s, big=False):
     if 'price' in s:
         u = f'<span class="u">/{s["unit"]}</span>' if s.get('unit') else ''
-        return f'<span class="pr"><b>{yen(s["price"])}</b>円{u}<small>(税抜)</small><span class="tx">税込 <em>{tax(s["price"])}</em>円</span></span>'
+        return f'<span class="pr"><b>{tax(s["price"])}</b>円{u}<small>(税込)</small></span>'
     return f'<span class="pr"><b class="t">{s["priceText"]}</b></span>'
 def ul(items, cls=''): return f'<ul class="{cls}">' + ''.join(f'<li>{e(i)}</li>' for i in items) + '</ul>'
 def ps(items): return ''.join(f'<p>{e(p)}</p>' for p in items)
@@ -222,7 +222,7 @@ def service_page(s):
 <div class="pbox">{price_html(s)}</div></div></section>'''
     b = ''
     b += f'<div class="blk"><h3>こんな方に</h3>{ul(s["fit"],"chk")}</div>'
-    if s['slug']=='floorplan-design': b += '<div class="blk approach"><h3>'+APPROACH['title']+'</h3>'+ps([x.replace('{P}',yen(s['price'])) for x in APPROACH['paras']])+'<p class="sm">'+APPROACH['note']+'</p></div>'
+    if s['slug']=='floorplan-design': b += '<div class="blk approach"><h3>'+APPROACH['title']+'</h3>'+ps([x.replace('{P}',tax(s['price'])) for x in APPROACH['paras']])+'<p class="sm">'+APPROACH['note']+'</p></div>'
     if z: b += f'<div class="blk"><h3>相談料の充当について</h3><p>{e(s["credit"])}</p><p class="sm">Zoom相談を経ずに、各サービスへ直接お申し込みいただくことも可能です。</p></div>'
     if s.get('chips'): b += f'<div class="blk"><h3>対応できること</h3><div class="chips">{"".join(f"<span>{c}</span>" for c in s["chips"])}</div><p class="sm">必要な項目を、自由に組み合わせられます。</p></div>'
     b += f'<div class="blk"><h3>{s.get("pointsTitle","サービス内容")}</h3>{ul(s["points"],"dot")}</div>'
@@ -235,13 +235,13 @@ def service_page(s):
     if s.get('notes'): b += f'<div class="blk"><h3>ご確認ください</h3>{ul(s["notes"],"dot")}</div>'
     b += '<div class="blk"><h3>ご利用の流れ</h3><ol class="flow">' + ''.join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t,d in s['flow']) + '</ol>' + hours_html() + '</div>'
     if s.get('fix'): b += f'<div class="blk"><h3>修正について</h3><p>{e(s["fix"])}</p></div>'
-    if 'price' in s and not z: b += f'<p class="sm">料金は税抜{yen(s["price"])}円(税込{tax(s["price"])}円)です。制作開始前にお振込みをお願いしております。</p>'
+    if 'price' in s and not z: b += f'<p class="sm">料金は税込{tax(s["price"])}円です。制作開始前にお振込みをお願いしております。</p>'
     cta = f'<div class="cta">{line_btn(s.get("btn","このサービスについて相談する"),"btn btn-w")}</div>'
     others = '<div class="others"><span class="en">OTHER SERVICES</span><div class="svl">' + ''.join(
         f'''<a class="sv" href="{L(o['slug'])}"><span class="svn">{o['no']}</span><span class="svb"><span class="svt"><b>{o['name']}</b></span>{price_html(o)}</span><i class="arw">→</i></a>''' for o in SERVICES if o is not s) + '</div></div>'
     main = f'<main id="main">{h}<section class="sec"><div class="wrap narrow">{b}</div></section><section class="sec cta-sec"><div class="wrap narrow">{cta}</div></section><section class="sec tint"><div class="wrap narrow">{others}</div></section></main>'
     svc = {'@context':'https://schema.org','@type':'Service','name':s['name'],'description':s['desc'],'provider':{'@type':'ProfessionalService','name':'宇山朋希 建築士','url':BASE+'/'},'areaServed':'徳島県' if '徳島' in s['area'] else 'JP','url':BASE+'/'+s['slug']}
-    if 'price' in s: svc['offers']={'@type':'Offer','price':str(s['price']),'priceCurrency':'JPY'}
+    if 'price' in s: svc['offers']={'@type':'Offer','price':str(round(s['price']*1.1)),'priceCurrency':'JPY'}
     return head(s['title'], s['desc'], s['slug'], jsonld=[svc, crumbs([('TOP',''),(s['name'],s['slug'])])]) + header() + main + footer()
 for s in SERVICES: pages[s['slug']] = service_page(s)
 
