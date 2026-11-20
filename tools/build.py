@@ -5,7 +5,7 @@ import sys, os, shutil, html, json
 OUT = sys.argv[1]; PREVIEW = '--preview' in sys.argv
 EXT = '.html' if PREVIEW else ''
 SHOW_WORKS = False  # WORKS(自邸)は写真の撮り直し後に True にして公開する
-BASE = 'https://tomo-architect.com'
+BASE = 'https://uyama-architecture.com'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LINE = 'https://lin.ee/RltCpPb'
 INSTA = 'https://www.instagram.com/tomo_arch_house/'

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tomo-architect.com/sitemap.xml
+Sitemap: https://uyama-architecture.com/sitemap.xml
