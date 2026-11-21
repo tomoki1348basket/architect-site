@@ -138,7 +138,7 @@ def head(title, desc, path, ogimg='ogp.jpg', jsonld=None, noindex=False):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#f3efe9">
+<meta name="theme-color" content="#f2f2f2">
 <meta property="og:type" content="website"><meta property="og:site_name" content="宇山朋希 建築士"><meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}/{ogimg}"><meta name="twitter:card" content="summary_large_image">
